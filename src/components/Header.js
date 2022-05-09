@@ -1,4 +1,7 @@
-const Header = () => {
+import { Link, useNavigate } from "react-router-dom";
+
+const Header = ({token, setUser}) => {
+  const navigate = useNavigate();
   return (
     <header>
       <div className="logo">
@@ -11,11 +14,30 @@ const Header = () => {
       <div>
         <input className="searchbar" placeholder="Rechercher des articles" />
       </div>
-      <div className="buttons">
-        <button className="inscription">S'inscrire</button>
-        <button className="connexion">Se connecter</button>
-        <button className="articles">Vends tes articles</button>
-      </div>
+      {!token ? (
+        <div className="buttons">
+          <Link to="/signup">
+            <button className="inscription">S'inscrire</button>
+          </Link>
+          <Link to="/login">
+            <button className="connexion">Se connecter</button>
+          </Link>
+        
+        ):(
+            <button
+            className="déconnexion"
+            onClick={() => {
+              setUser(null);
+              navigate("/");
+            }}
+            >
+            Se déconnecter
+          </button>
+          <button className="articles">Vends tes articles</button>
+      
+        </div>
+        )}
+      
     </header>
   );
 };
