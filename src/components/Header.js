@@ -22,6 +22,9 @@ const Header = ({ token, setUser }) => {
           <Link to="/login">
             <button className="connexion">Se connecter</button>
           </Link>
+          <Link to="/login">
+            <button className="publier">Poster une offre</button>
+          </Link>
         </div>
       ) : (
         <div className="buttons">
@@ -34,7 +37,9 @@ const Header = ({ token, setUser }) => {
           >
             Se déconnecter
           </button>
-          <button className="articles">Vends tes articles</button>
+          <Link to="/publish">
+            <button className="articles">Vends tes articles</button>
+          </Link>
         </div>
       )}
     </header>

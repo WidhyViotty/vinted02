@@ -1,6 +1,8 @@
+import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function Publish() {
+export default function Publish({ token }) {
   const [picture, setPicture] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -10,21 +12,53 @@ export default function Publish() {
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState();
+  const [preview, setPreview] = useState(null);
+  const [posted, setPosted] = useState(false);
 
-  //   const [preview, setPreview] = useState(null);
+  const navigate = useNavigate();
 
-  return (
-    <form className="container">
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      const formData = new FormData();
+      formData.append("picture", picture);
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("brand", brand);
+      formData.append("size", size);
+      formData.append("color", color);
+      formData.append("condition", condition);
+      formData.append("city", city);
+      formData.append("price", price);
+
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        formData,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log(response.data);
+      setPosted(true);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+  return token ? (
+    <form className="container" onSubmit={handleSubmit}>
       <input
         type="file"
         placeholder="Photo"
-        value={picture}
         onChange={(event) => {
           console.log(event);
           setPicture(event.target.files);
+          setPreview(URL.createObjectURL(event.target.files[0]));
         }}
       />
-      {/* <img src={preview} alt="" /> */}
+      <img src={preview} style={{ width: "150px" }} alt="" />
       <br />
       <input
         type="text"
@@ -84,5 +118,7 @@ export default function Publish() {
       <br />
       <input type="submit" placeholder="Ajouter" />
     </form>
+  ) : (
+    navigate("/login")
   );
 }
