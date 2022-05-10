@@ -7,19 +7,20 @@ import Header from "./components/Header";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Cookies from "js-cookie";
+import Publish from "./pages/Publish";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (token) => {
-    if (token !== null) {
+    if (token) {
       //Action de connexion
       Cookies.set("userToken", token, { expires: 10 });
-      setUser(token);
+      setToken(token);
     } else {
       //action de déconnexion
       Cookies.remove("userToken");
-      setUser(null);
+      setToken(null);
     }
 
     setToken(token);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/publish" element={<Publish token={token} />} />
       </Routes>
     </Router>
   );

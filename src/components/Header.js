@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const Header = ({token, setUser}) => {
+const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
   return (
     <header>
@@ -22,22 +22,21 @@ const Header = ({token, setUser}) => {
           <Link to="/login">
             <button className="connexion">Se connecter</button>
           </Link>
-        
-        ):(
-            <button
-            className="déconnexion"
+        </div>
+      ) : (
+        <div className="buttons">
+          <button
+            className="deconnexion"
             onClick={() => {
               setUser(null);
               navigate("/");
             }}
-            >
+          >
             Se déconnecter
           </button>
           <button className="articles">Vends tes articles</button>
-      
         </div>
-        )}
-      
+      )}
     </header>
   );
 };
