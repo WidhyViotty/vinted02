@@ -25,19 +25,28 @@ const Home = () => {
     <div>En cours de chargement</div>
   ) : (
     <div>
+      <div className="container-banner">
+        <img
+          src="https://www.vinted.fr/assets/seller-promotion/other/banner-wide-9b45d0aa9a311c4ff6013e9cf3bc2b6646468be3d2f553192c63598685fcc177.jpg"
+          alt="banner"
+          style={{ width: 1400, height: 500 }}
+        />
+      </div>
       {data.offers.map((offer) => {
         // console.log(offer._id);
         return (
-          <Link to={`/offer/${offer._id}`} key={offer._id}>
-            <div className="card">
-              <h2>{offer.product_name}</h2>
-              <img
-                style={{ height: 150 }}
-                src={offer.product_image.secure_url}
-                alt=""
-              />
-            </div>
-          </Link>
+          <div className="section">
+            <Link to={`/offer/${offer._id}`} key={offer._id}>
+              <div className="card">
+                <h2>{offer.product_name}</h2>
+                <img
+                  style={{ height: 150, objectFit: "cover" }}
+                  src={offer.product_image.secure_url}
+                  alt=""
+                />
+              </div>
+            </Link>
+          </div>
         );
       })}
     </div>

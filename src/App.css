@@ -10,6 +10,19 @@ header{
   align-items: center;
 }
 
+.container-banner{
+  width: 1400px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.section{
+  width: 1240px;
+  display: flex;
+  border: solid red;
+  margin: 100px;
+}
+
 .logo{
   height: 90%;
   width: auto;

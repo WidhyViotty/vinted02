@@ -11,7 +11,7 @@ export default function Publish({ token }) {
   const [color, setColor] = useState("");
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState(0);
   const [preview, setPreview] = useState(null);
   const [posted, setPosted] = useState(false);
 
