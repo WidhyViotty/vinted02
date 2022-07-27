@@ -2,34 +2,8 @@
   text-align: center;
 }
 
-header{
-  border-bottom: solid #ECECEC;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.container-banner{
-  width: 1400px;
-  height: 500px;
-  object-fit: cover;
-}
-
-.section{
-  width: 1240px;
-  display: flex;
-  border: solid red;
-  margin: 100px;
-}
-
-.logo{
-  height: 90%;
-  width: auto;
-}
-
-.searchbar{
-  width: 600px;
+.font-face-rt{
+  font-family: "RobotoLight";
 }
 
 .signup-form{
@@ -49,43 +23,10 @@ header{
   margin: auto;
 }
 
-.buttons{
-  display: flex;
-  justify-content: space-around;
-  border-radius: 5%;
-}
-
-.deconnexion{
-  background-color: red;
-  color: white;
-}
-
-.publier{
-  background-color: #017580;
-  color: white;
-}
-
-.articles{
-  background-color: #017580;
-  color: white;
-}
-
-.inscription{
-  background-color: #017580;
-  color: white;
-}
-
-.connexion{
-  background-color:white;
-  color:#017580;
-  border-color: #017580 ;
-}
-
 .container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
 }
 
 .container>input{

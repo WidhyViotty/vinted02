@@ -1,0 +1,54 @@
+header{
+    border-bottom: solid #ECECEC;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo{
+    height: 90%;
+    width: auto;
+  }
+
+  .logo-vinted{
+    height: 35px;
+    width: 130px;
+    margin-left: 100px;
+  }
+  
+  .searchbar{
+    width: 600px;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5%;
+  }
+
+  .deconnexion{
+  background-color: red;
+  color: white;
+}
+
+.publier{
+  background-color: #017580;
+  color: white;
+}
+
+.articles{
+  background-color: #017580;
+  color: white;
+}
+
+.inscription{
+  background-color: #017580;
+  color: white;
+}
+
+.connexion{
+  background-color:white;
+  color:#017580;
+  border-color: #017580 ;
+}

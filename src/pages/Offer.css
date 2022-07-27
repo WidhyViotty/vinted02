@@ -1,0 +1,50 @@
+.offer-page{
+    width: 100%;
+    height: 100%;
+    background-color:#F2F2F2;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    padding: 5%;
+}
+
+.offer-picture{
+    width: 300px;
+    height: 515px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.offer-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    height: 400px;
+    background-color: white;
+    margin-left: 20px;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.product-price{
+    font-size: large;
+}
+
+.product-details{
+    color: gray;
+    font-size: small;
+
+}
+
+.product-name{
+    font-size: large;
+}
+
+.product-description{
+    color: gray;
+    font-size: small;
+}

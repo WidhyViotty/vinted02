@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import "./Header.css";
 
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
@@ -7,9 +8,10 @@ const Header = ({ token, setUser }) => {
       <Link to="/">
         <div className="logo">
           <img
+            className="logo-vinted"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Vinted_logo.png/1024px-Vinted_logo.png"
             alt="logo"
-            style={{ height: "50px", width: "150px" }}
+            // style={{ height: "50px", width: "150px" }}
           />
         </div>
       </Link>

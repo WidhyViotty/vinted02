@@ -1,3 +1,4 @@
+import "./Offer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -24,19 +25,33 @@ const Offer = () => {
   return isLoading === true ? (
     <div>En cours de chargement</div>
   ) : (
-    <div>
-      <h2>{data.product_name}</h2>
-      <span>{data.product_price}</span>
-      <div>
-        {data.product_details.map((item, index) => {
-          const keys = Object.keys(item);
+    <div className="offer-page">
+      <img
+        className="offer-picture"
+        src={data.product_image.secure_url}
+        alt=""
+      />
+      <div className="offer-details">
+        <h3 className="product-price">{data.product_price} €</h3>
+        <span></span>
+        <span className="product-details">
+          <div className="font-face-rt">
+            {data.product_details.map((item, index) => {
+              const keys = Object.keys(item);
 
-          return (
-            <div key={index}>
-              {keys[0]} : {item[keys[0]]}
-            </div>
-          );
-        })}
+              return (
+                <div key={index}>
+                  {keys[0]} : {item[keys[0]]}
+                </div>
+              );
+            })}
+          </div>
+        </span>
+        <p></p>
+        <h3 className="product-name">{data.product_name}</h3>
+        <span className="product-description">
+          <div className="font-face-rt">{data.product_description}</div>
+        </span>
       </div>
     </div>
   );

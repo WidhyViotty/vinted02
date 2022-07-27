@@ -1,3 +1,4 @@
+import "./Home.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -27,28 +28,50 @@ const Home = () => {
     <div>
       <div className="container-banner">
         <img
+          className="banner"
           src="https://www.vinted.fr/assets/seller-promotion/other/banner-wide-9b45d0aa9a311c4ff6013e9cf3bc2b6646468be3d2f553192c63598685fcc177.jpg"
           alt="banner"
-          style={{ width: 1400, height: 500 }}
+          // style={{ width: 1400, height: 500 }}
         />
       </div>
-      {data.offers.map((offer) => {
-        // console.log(offer._id);
-        return (
-          <div className="section">
-            <Link to={`/offer/${offer._id}`} key={offer._id}>
-              <div className="card">
-                <h2>{offer.product_name}</h2>
-                <img
-                  style={{ height: 150, objectFit: "cover" }}
-                  src={offer.product_image.secure_url}
-                  alt=""
-                />
-              </div>
-            </Link>
-          </div>
-        );
-      })}
+      <h2>Articles populaires</h2>
+      <div className="section">
+        {data.offers.map((offer) => {
+          // console.log(offer._id);
+          return (
+            <div>
+              {/* console.log({offer.owner.account.username}); */}
+              <Link to={`/offer/${offer._id}`} key={offer._id}>
+                <div className="offer">
+                  <div className="user">
+                    {/* {offer.owner.map((item, index) => {
+                      return <div key={index}>{item.username}</div>;
+                    })} */}
+                  </div>
+                  <img
+                    className="picture"
+                    src={offer.product_image.secure_url}
+                    alt=""
+                  />
+                  <div className="offer-description">
+                    <span>{offer.product_price}€</span>
+                    <span>
+                      {offer.product_details.map((item, index) => {
+                        return (
+                          <div key={index}>
+                            {item.MARQUE}
+                            {item.TAILLE}
+                          </div>
+                        );
+                      })}
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
