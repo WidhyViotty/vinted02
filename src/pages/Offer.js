@@ -1,6 +1,6 @@
 import "./Offer.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Offer = () => {
@@ -52,6 +52,9 @@ const Offer = () => {
         <span className="product-description">
           <div className="font-face-rt">{data.product_description}</div>
         </span>
+        <Link to="/">
+          <button className="acheter">Acheter</button>
+        </Link>
       </div>
     </div>
   );

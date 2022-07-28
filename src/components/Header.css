@@ -19,36 +19,58 @@ header{
   
   .searchbar{
     width: 600px;
+    align-items: center;
+    border-radius: 15px;
+    padding: 15px;
+    align-content: center;
+    margin: 10px;
+
   }
 
   .buttons{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border-radius: 5%;
+    flex-direction: row;
   }
 
   .deconnexion{
   background-color: red;
   color: white;
+  margin: 2px;
+  height: 30px;
+  border-radius: 5px
 }
 
 .publier{
   background-color: #017580;
   color: white;
+  margin: 2px;
+  height: 30px;
+  border-radius: 5px
 }
 
 .articles{
   background-color: #017580;
   color: white;
+  margin: 2px;
+  height: 30px;
+  border-radius: 5px
 }
 
 .inscription{
   background-color: #017580;
   color: white;
+  margin: 2px;
+  height: 30px;
+  border-radius: 5px
 }
 
 .connexion{
   background-color:white;
   color:#017580;
-  border-color: #017580 ;
+  border-color: 2px solid #017580 ;
+  margin: 2px;
+  height: 30px;
+  border-radius: 5px;
 }
