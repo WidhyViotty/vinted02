@@ -1,3 +1,4 @@
+import "./Publish.css";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +14,7 @@ export default function Publish({ token }) {
   const [city, setCity] = useState("");
   const [price, setPrice] = useState(0);
   const [preview, setPreview] = useState(null);
-  const [posted, setPosted] = useState(false);
+  const [setPosted] = useState(false);
 
   const navigate = useNavigate();
 

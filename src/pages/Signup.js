@@ -1,3 +1,4 @@
+import "./Signup.css";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [newsletter, setNewsletter] = useState(false);
+  const [newsletter] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -44,6 +45,7 @@ const Signup = ({ setUser }) => {
       <form className="signup-form" onSubmit={handleSignup}>
         <h1>Inscription </h1>
         <input
+          className="username"
           value={username}
           type="text"
           placeholder="Nom d'utilisateur"
@@ -52,6 +54,7 @@ const Signup = ({ setUser }) => {
         <br />
 
         <input
+          className="email"
           value={email}
           type="email"
           placeholder="Email"
@@ -60,20 +63,24 @@ const Signup = ({ setUser }) => {
         <br />
 
         <input
+          className="password"
           value={password}
           type="password"
           placeholder="Mot de passe"
           onChange={(event) => setPassword(event.target.value)}
         />
         <br />
-        <input
+        {/* <input
+          className="newsletter"
           value={newsletter}
           type="checkbox"
           placeholder="Mot de passe"
           onChange={(event) => setNewsletter(event.target.checked)}
-        />
+        /> */}
         <br />
-        <input type="submit" value="S'inscrire" />
+        <button className="signup" type="submit">
+          S'inscrire
+        </button>
         <p style={{ color: "red" }}>{errorMessage}</p>
       </form>
     </div>

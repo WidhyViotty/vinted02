@@ -1,0 +1,25 @@
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    width: 300px;
+    margin: auto;
+  }
+
+.username{
+    width: auto;
+    height: 25px;
+    color: white;
+}
+
+.signup{
+    width: auto;
+    height: 35px;
+    color:white;
+    border-color: #2DB0BA;
+    background-color: #2DB0BA;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 10px;
+}

@@ -1,3 +1,4 @@
+import "./Login.css";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -33,6 +34,7 @@ const Login = ({ setUser }) => {
     <form className="login-form" onSubmit={handleLogin}>
       <h1>Connexion</h1>
       <input
+        className="email"
         value={email}
         placeholder="Email"
         type="email"
@@ -40,13 +42,16 @@ const Login = ({ setUser }) => {
       />
       <br />
       <input
+        className="password"
         type="password"
         placeholder="Mot de passe"
         value={password}
         onChange={(event) => setPassword(event.target.value)}
       />
       <br />
-      <input type="submit" value="Se connecter" />
+      <button className="login" type="submit">
+        Se connecter
+      </button>
       <br />
     </form>
   );

@@ -6,23 +6,6 @@
   font-family: "RobotoLight";
 }
 
-.signup-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-  width: 300px;
-  margin: auto;
-}
-.login-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-  width: 300px;
-  margin: auto;
-}
-
 .container{
   display: flex;
   flex-direction: column;

@@ -24,7 +24,8 @@ header{
     padding: 15px;
     align-content: center;
     margin: 10px;
-
+    /* border-color: #2DB0BA; */
+    box-shadow: none;
   }
 
   .buttons{
@@ -35,7 +36,7 @@ header{
   }
 
   .deconnexion{
-  background-color: red;
+  background-color: #D44122;
   color: white;
   margin: 2px;
   height: 30px;
@@ -43,7 +44,7 @@ header{
 }
 
 .publier{
-  background-color: #017580;
+  background-color: #2DB0BA;
   color: white;
   margin: 2px;
   height: 30px;
@@ -51,7 +52,7 @@ header{
 }
 
 .articles{
-  background-color: #017580;
+  background-color: #2DB0BA;
   color: white;
   margin: 2px;
   height: 30px;
@@ -59,7 +60,7 @@ header{
 }
 
 .inscription{
-  background-color: #017580;
+  background-color: #2DB0BA;
   color: white;
   margin: 2px;
   height: 30px;
@@ -68,8 +69,8 @@ header{
 
 .connexion{
   background-color:white;
-  color:#017580;
-  border-color: 2px solid #017580 ;
+  color:#2DB0BA;
+  border-color: 1px solid #2DB0BA ;
   margin: 2px;
   height: 30px;
   border-radius: 5px;

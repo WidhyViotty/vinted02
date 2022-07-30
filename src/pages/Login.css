@@ -1,0 +1,38 @@
+h1{
+    color:#2DB0BA;
+    margin-top: 100px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 10%;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    width: 300px;
+    margin: auto;
+  }
+
+  .email{
+    width: auto;
+    height: 25px;
+    color: white;
+  }
+
+  .password{
+    width: auto;
+    height: 25px;
+  }
+
+  .login{
+    width: auto;
+    height: 35px;
+    color:white;
+    border-color: #2DB0BA;
+    background-color: #2DB0BA;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 10px;
+  }
