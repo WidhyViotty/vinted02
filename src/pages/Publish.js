@@ -14,7 +14,7 @@ export default function Publish({ token }) {
   const [city, setCity] = useState("");
   const [price, setPrice] = useState(0);
   const [preview, setPreview] = useState(null);
-  const [setPosted] = useState(false);
+  // const [setPosted] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,14 +43,18 @@ export default function Publish({ token }) {
         }
       );
       console.log(response.data);
-      setPosted(true);
+      if (response.data._id) {
+        navigate(`/offer/${response.data._id}`);
+      }
     } catch (error) {
-      console.log(error.response);
+      console.log(error.response.data);
     }
   };
   return token ? (
     <form className="container" onSubmit={handleSubmit}>
+      <h1>Vends ton article</h1>
       <input
+        className="photo"
         type="file"
         placeholder="Photo"
         onChange={(event) => {
@@ -62,6 +66,7 @@ export default function Publish({ token }) {
       <img src={preview} style={{ width: "150px" }} alt="" />
       <br />
       <input
+        className="titre"
         type="text"
         placeholder="Titre"
         value={title}
@@ -69,6 +74,7 @@ export default function Publish({ token }) {
       />
       <br />
       <input
+        className="description"
         type="text"
         placeholder="Description"
         value={description}
@@ -76,6 +82,7 @@ export default function Publish({ token }) {
       />
       <br />
       <input
+        className="marque"
         type="text"
         placeholder="Marque"
         value={brand}
@@ -83,6 +90,7 @@ export default function Publish({ token }) {
       />
       <br />
       <input
+        className="taille"
         type="text"
         placeholder="Taille"
         value={size}
@@ -90,6 +98,7 @@ export default function Publish({ token }) {
       />
       <br />
       <input
+        className="couleur"
         type="text"
         placeholder="Couleur"
         value={color}
@@ -97,6 +106,7 @@ export default function Publish({ token }) {
       />
       <br />
       <input
+        className="etat"
         type="text"
         placeholder="Etat"
         value={condition}
@@ -104,20 +114,30 @@ export default function Publish({ token }) {
       />
       <br />
       <input
+        className="lieu"
         type="text"
         placeholder="Lieu"
         value={city}
         onChange={(event) => setCity(event.target.value)}
       />
       <br />
+      <span className="title-prix">Prix</span>
       <input
+        className="prix"
         type="number"
         placeholder="Prix"
         value={price}
         onChange={(event) => setPrice(event.target.value)}
       />
       <br />
-      <input type="submit" placeholder="Ajouter" />
+      <button
+        className="vendre"
+        type="submit"
+        placeholder="Ajouter"
+        onClick={handleSubmit}
+      >
+        Ajouter
+      </button>
     </form>
   ) : (
     navigate("/login")

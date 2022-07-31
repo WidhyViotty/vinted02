@@ -1,9 +1,9 @@
 h1{
     color:#2DB0BA;
-    margin-top: 100px;
+    margin-top: 40px;
     padding-left: 20%;
     padding-right: 20%;
-    padding-bottom: 10%;
+    /* padding-bottom: 5%; */
 }
 
 .login-form{

@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.titre{
+    width: auto;
+    height: 25px;
+}
+
+.description{
+    width: auto;
+    height: 25px;
+    margin-bottom: 30px;
+}
+
+.lieu{
+    width: auto;
+    height: 25px;
+    margin-bottom: 30px;
+}
+
+.title-prix{
+    color: #2DB0BA;
+    font-weight: bold;
+}
+
+.prix{
+    width: auto;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+.vendre{
+    width: 150px;
+    height: 35px;
+    color:white;
+    border-color: #2DB0BA;
+    background-color: #2DB0BA;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 10px;
+}
