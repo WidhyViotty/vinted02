@@ -7,13 +7,15 @@
     align-content: space-between;
     justify-content: center;
     padding: 5%;
+    object-fit: cover;
 }
 
 .offer-picture{
-    width: 300px;
-    height: 515px;
+    width: 470px;
+    height: 555px;
     margin-right: 20px;
-    object-fit: cover;
+    margin-left: 100px;
+    object-fit:cover;
 }
 
 .offer-details{
@@ -21,9 +23,10 @@
     flex-direction: column;
     align-items: center;
     width: 220px;
-    height: 400px;
+    height: 440px;
     background-color: white;
     margin-left: 20px;
+    margin-right: 200px;
     padding-left: 4%;
     padding-right: 4%;
     padding-top: 3%;
@@ -53,7 +56,10 @@
     /* margin: 20px; */
     background-color: #2DB0BA;
     color: white;
+    font-size: larger;
     margin: 2px;
-    height: 30px;
+    height: 50px;
+    width: 150px;
     border-radius: 5px;
+    margin-top: 50px;
 }
