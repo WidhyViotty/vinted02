@@ -52,7 +52,7 @@ const Offer = () => {
         <span className="product-description">
           <div className="font-face-rt">{data.product_description}</div>
         </span>
-        <Link to="/">
+        <Link to="/payment" state={{ data: data }}>
           <button className="acheter">Acheter</button>
         </Link>
       </div>

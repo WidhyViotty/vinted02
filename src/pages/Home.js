@@ -44,9 +44,16 @@ const Home = () => {
               <Link to={`/offer/${offer._id}`} key={offer._id}>
                 <div className="offer">
                   <div className="user">
-                    {/* {offer.owner.map((item, index) => {
-                      return <div key={index}>{item.username}</div>;
-                    })} */}
+                    {offer.owner.account.avatar && (
+                      <img
+                        className="avatar"
+                        src={offer.owner.account.avatar.secure_url}
+                        alt=""
+                      />
+                    )}
+                    <span className="user_name">
+                      {offer.owner.account.username}
+                    </span>
                   </div>
                   <img
                     className="picture"

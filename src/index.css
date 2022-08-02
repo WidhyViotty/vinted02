@@ -1,6 +1,13 @@
+
+
 @font-face{
     font-family:"RobotoLight";
     src:local("RobotoLight"),
     url("./fonts/Roboto-Light.ttf") format("truetype");
     font-weight: 300;
+}
+
+button{
+    border:none;
+    background: 0;
 }

@@ -1,10 +1,10 @@
 import "./Publish.css";
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Publish({ token }) {
-  const [picture, setPicture] = useState();
+  const [picture, setPicture] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -13,10 +13,11 @@ export default function Publish({ token }) {
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState(0);
-  const [preview, setPreview] = useState(null);
+  const [preview] = useState(null);
   // const [setPosted] = useState(false);
 
   const navigate = useNavigate();
+  const inputRef = useRef(null);
 
   const handleSubmit = async (event) => {
     try {
@@ -30,8 +31,9 @@ export default function Publish({ token }) {
       formData.append("color", color);
       formData.append("condition", condition);
       formData.append("city", city);
-      formData.append("price", price);
+      formData.append("price", price.toString());
 
+      console.log(formData);
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
         formData,
@@ -42,12 +44,13 @@ export default function Publish({ token }) {
           },
         }
       );
-      console.log(response.data);
-      if (response.data._id) {
+      console.log(response.data, "bababababa");
+
+      if ((response.data._id, "bibibibi")) {
         navigate(`/offer/${response.data._id}`);
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error, "bobobobo");
     }
   };
   return token ? (
@@ -57,10 +60,13 @@ export default function Publish({ token }) {
         className="photo"
         type="file"
         placeholder="Photo"
+        accept=".jpeg"
+        ref={inputRef}
+        // value={picture}
         onChange={(event) => {
-          console.log(event);
-          setPicture(event.target.files);
-          setPreview(URL.createObjectURL(event.target.files[0]));
+          // console.log(event);
+          setPicture(event.target.files[0]);
+          // setPreview(URL.createObjectURL(event.target.files[0]));
         }}
       />
       <img src={preview} style={{ width: "150px" }} alt="" />
@@ -140,6 +146,6 @@ export default function Publish({ token }) {
       </button>
     </form>
   ) : (
-    navigate("/login")
+    <Navigate to="/login" />
   );
 }
