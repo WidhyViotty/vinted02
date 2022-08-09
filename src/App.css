@@ -1,4 +1,7 @@
-
+.InputElement{
+  border : 1px solid black;
+  padding: 12px 8px;
+}
 
 .App {
   text-align: center;

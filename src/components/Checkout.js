@@ -1,9 +1,34 @@
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useState } from "react";
+import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
+
+const CARD_ELEMENT_OPTIONS = {
+  iconStyle: "solid",
+  hidePostalCode: true,
+  style: {
+    base: {
+      iconColor: "rgb(240, 57, 122)",
+      color: "rgb(240, 57, 122)",
+      fontSize: "16px",
+      fontFamily: '"Open Sans", sans-serif',
+      fontSmoothing: "antialiased",
+      "::placeholder": {
+        color: "#2DB0BA",
+      },
+    },
+    invalid: {
+      color: "#e5424d",
+      ":focus": {
+        color: "#303238",
+      },
+    },
+  },
+};
 
 const Checkout = (data) => {
   const stripe = useStripe();
   const elements = useElements();
+  const [completed, setCompleted] = useState(false);
 
   const handlePayment = async (event) => {
     event.preventDefault();
@@ -20,21 +45,30 @@ const Checkout = (data) => {
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
           token: stripeResponse.token.id,
-          title: data.product_name,
-          amount: data.product_price,
+          title: data.data.product_name,
+          amount: data.data.product_price,
         }
       );
       console.log(response.data);
+      if (response.data.status === "succeeded") {
+        setCompleted(true);
+      }
     } catch (error) {
       console.log(error.message);
     }
   };
 
   return (
-    <form className="checkoutForm" onSubmit={handlePayment}>
-      <CardElement />
-      <input className="payer" type="submit" value="Payer" />
-    </form>
+    <div>
+      {!completed ? (
+        <form className="checkoutForm" onSubmit={handlePayment}>
+          <CardElement options={CARD_ELEMENT_OPTIONS} />
+          <input className="payer" type="submit" value="Payer" />
+        </form>
+      ) : (
+        <span className="validPayment">Ton paiement est accepté</span>
+      )}
+    </div>
   );
 };
 
